@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+            <ImageButton
+                android:id="@+id/detail_btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:backgroundTint="@color/white"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/detail_image"
+                    android:src="@drawable/common_google_signin_btn_icon_dark"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:textStyle="normal"
+                        android:textSize="28sp"
+                        android:textColor="@color/white"
+                        android:id="@+id/detailTxtName"
+                        android:text="Name : Paracetamol"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:textStyle="normal"
+                        android:textSize="28sp"
+                        android:textColor="@color/white"
+                        android:id="@+id/detailTxtDose"
+                        android:text="Dose : 300mg"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:textStyle="normal"
+                        android:textSize="28sp"
+                        android:textColor="@color/white"
+                        android:id="@+id/detailTxtTime"
+                        android:text="Next Dose : 3pm"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:textStyle="normal"
+                    android:textSize="28sp"
+                    android:textColor="@color/white"
+                    android:text="Dose" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:textStyle="normal"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:text="3 Times | 9 am, 3 pm and 9 pm"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:textStyle="normal"
+                    android:textSize="28sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:text="Programs"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:textStyle="normal"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:text="Total 8 weeks | 6 weeks left"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:textStyle="normal"
+                    android:textSize="28sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:text="Quality"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:textStyle="normal"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:text="Total 168 Capsule | 126 Capsule left"/>
+            </LinearLayout>
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="250dp"
+                android:text="Change Schedule"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_gravity="center"/>
+
+</LinearLayout>
