@@ -1,17 +1,12 @@
 package com.example.mreminder
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mreminder.adapter.MedicineAdapter
 import com.example.mreminder.listener.Imedicine
-import com.example.mreminder.model.DetailActivity
 import com.example.mreminder.model.MedicineModel
 import com.example.mreminder.utils.SpaceItemDecoration
 import com.google.android.material.snackbar.Snackbar
@@ -30,17 +25,10 @@ class MainActivity : AppCompatActivity(), Imedicine {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        detail = findViewById(R.id.detail_layout)
         recycleItem=findViewById(R.id.recycler_item)
         init()
         loadItemFromFirebase()
 
-        val mSmartActBtn = findViewById<ImageButton>(R.id.startActBtn)
-        //handle button click
-        mSmartActBtn.setOnClickListener {
-            //start activity intent
-            detail.visibility = View.GONE
-        }
     }
 
     private fun loadItemFromFirebase() {

@@ -4,51 +4,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".model.DetailActivity">
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".DetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/detail_layout">
+        android:id="@+id/layout1"
+        android:gravity="center">
+
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/imageView"
-            android:src="@drawable/common_google_signin_btn_icon_dark"/>
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/detail_image"
+            android:src="@drawable/img"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:textStyle="normal"
-                android:textSize="28sp"
-                android:textColor="@color/white"
-                android:id="@+id/txtName"
-                android:text="Name : Paracetamol"/>
+                android:textSize="16dp"
+                android:text="Name"
+                android:textColor="@color/main_gray"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/main_blue"
+                android:id="@+id/detail_name"
+                android:text="Gabapentin" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:textStyle="normal"
-                android:textSize="28sp"
-                android:textColor="@color/white"
-                android:id="@+id/txtDose"
-                android:text="Dose : 300mg"/>
+                android:textSize="16dp"
+                android:text="Dose"
+                android:textColor="@color/main_gray"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/main_blue"
+                android:id="@+id/detail_dose"
+                android:text="300 mg"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:textStyle="normal"
-                android:textSize="28sp"
-                android:textColor="@color/white"
-                android:id="@+id/textDose"
-                android:text="Next Dose : 3pm"/>
+                android:textSize="16dp"
+                android:text="Next Dose"
+                android:textColor="@color/main_gray"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/main_blue"
+                android:id="@+id/detail_next_dose"
+                android:text="3pm"/>
+
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_below="@id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Dose"
+            android:textColor="@color/main_blue"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:textColor="@color/main_gray"
+            android:id="@+id/detail_dose_time"
+            android:text="3 times | 9am, 3pm, 9 pm"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Program"
+            android:textColor="@color/main_blue"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:textColor="@color/main_gray"
+            android:id="@+id/detail_program"
+            android:text="Total 8 weeks | 6 weeks left"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Quantity"
+            android:textColor="@color/main_blue"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:textColor="@color/main_gray"
+            android:id="@+id/detail_quantity"
+            android:text="Total 168 capsule | 126 capsule left"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="277dp"
+        android:layout_height="39dp"
+        android:text="Change Schedule"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/itim_regular"/>
 
 </RelativeLayout>

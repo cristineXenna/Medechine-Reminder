@@ -1,4 +1,4 @@
-package com.example.mreminder.model
+package com.example.mreminder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
