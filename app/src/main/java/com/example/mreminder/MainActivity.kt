@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity(), Imedicine {
 
     lateinit var medicineListener: Imedicine
     lateinit var recycleItem: RecyclerView
-    lateinit var detail: RelativeLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
