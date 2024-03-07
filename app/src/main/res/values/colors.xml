@@ -9,4 +9,5 @@
     <color name="dark_grey">#FF3C3F41</color>
     <color name="blue_white">#e9f7ff</color>
     <color name="purple">#647CFD</color>
+    <color name="transparent">#1a9fAAB7</color>
 </resources>

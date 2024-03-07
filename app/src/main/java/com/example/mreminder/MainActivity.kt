@@ -1,16 +1,22 @@
 package com.example.mreminder
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.service.autofill.UserData
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputBinding
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.cardview.widget.CardView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,16 +33,23 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity(), Imedicine {
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navigationView: NavigationView
-    private lateinit var toggle: ActionBarDrawerToggle
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var addsBtn:FloatingActionButton
-    private lateinit var recv: RecyclerView
 
     lateinit var medicineListener: Imedicine
     lateinit var recycleItem: RecyclerView
 
+    lateinit var addsBtn: FloatingActionButton
+    lateinit var btn_this_month: TextView
+    lateinit var btn_this_week: TextView
+    lateinit var btn_today: TextView
+
+    lateinit var btn_open_menu: ImageButton
+    lateinit var btn_close_menu: ImageButton
+    lateinit var menu: RelativeLayout
+    lateinit var btn_home: CardView
+    lateinit var btn_profile: CardView
+    lateinit var btn_history: CardView
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -45,52 +58,46 @@ class MainActivity : AppCompatActivity(), Imedicine {
         init()
         loadItemFromFirebase()
 
-        drawerLayout=findViewById(R.id.drawer_layout)
+        btn_this_month = findViewById(R.id.btn_this_month)
+        btn_this_week = findViewById(R.id.btn_this_week)
+        btn_today = findViewById(R.id.btn_today)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        btn_open_menu = findViewById(R.id.btn_open_menu)
+        btn_close_menu = findViewById(R.id.btn_menu_close)
+        menu = findViewById(R.id.menu)
+        menu.visibility = View.GONE
+        btn_today.setTextColor(Color.GRAY)
 
-        navigationView=findViewById(R.id.nav_view)
-
-        toggle=ActionBarDrawerToggle(
-            this,
-            findViewById(R.id.toolbar),
-            "Open navigation drawer",
-            "Close navigation drawer"
-        )
-        drawerLayout.addDrawerListener(toggle)
-
-        binding =ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        binding.btnThisMonth.setOnClickListener{
-            binding.btnThisMonth.setTextColor(Color.GRAY)
-            binding.btnThisWeek.setTextColor(Color.WHITE)
-            binding.month.visibility = View.VISIBLE
-            binding.days.visibility = View.GONE
+        btn_this_month.setOnClickListener{
+            btn_this_month.setTextColor(Color.GRAY)
+            btn_this_week.setTextColor(Color.WHITE)
+            btn_today.setTextColor(Color.WHITE)
         }
-        binding.btnThisWeek.setOnClickListener {
-            binding.btnThisMonth.setTextColor(Color.WHITE)
-            binding.btnThisWeek.setTextColor(Color.GRAY)
-            binding.days.visibility = View.VISIBLE
-            binding.month.visibility = View.GONE
+
+        btn_this_week.setOnClickListener {
+            btn_this_month.setTextColor(Color.WHITE)
+            btn_this_week.setTextColor(Color.GRAY)
+            btn_today.setTextColor(Color.WHITE)
         }
-        week_process()
-        addsBtn = binding.addingBtn
-        recv = binding.mRecycler
-        addsBtn.setOnClickListener { addInfo() }
-        val navigationView=findViewById<NavigationView>(R.id.nav_view)
-    }
 
+        btn_today.setOnClickListener {
+            btn_this_month.setTextColor(Color.WHITE)
+            btn_this_week.setTextColor(Color.WHITE)
+            btn_today.setTextColor(Color.GRAY)
+        }
 
-    private fun week_process() {
-        var mon = findViewById<TextView>(R.id.btn_mon)
-        var tue = findViewById<TextView>(R.id.btn_tue)
-        var wed = findViewById<TextView>(R.id.btn_wed)
-        var thu = findViewById<TextView>(R.id.btn_thu)
-        var fri = findViewById<TextView>(R.id.btn_fri)
-        var sat = findViewById<TextView>(R.id.btn_sat)
-        var sun = findViewById<TextView>(R.id.btn_sun)
+        btn_open_menu.setOnClickListener{
+            menu.visibility = View.VISIBLE
+        }
+
+        btn_close_menu.setOnClickListener {
+            menu.visibility = View.GONE
+        }
+//        week_process()
+//        addsBtn = binding.addingBtn
+//        recv = binding.mRecycler
+//        addsBtn.setOnClickListener { addInfo() }
+//        val navigationView=findViewById<NavigationView>(R.id.nav_view)
     }
 
     private fun loadItemFromFirebase() {
@@ -132,7 +139,7 @@ class MainActivity : AppCompatActivity(), Imedicine {
     }
 
     override fun onLoadFail(message: String?) {
-        Snackbar.make(findViewById(R.id.mainLayout), message!!, Snackbar.LENGTH_LONG).show()
+//        Snackbar.make(this, message!!, Snackbar.LENGTH_LONG).show()
     }
 
 
