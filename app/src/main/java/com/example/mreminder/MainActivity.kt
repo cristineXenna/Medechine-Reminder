@@ -9,12 +9,15 @@ import android.service.autofill.UserData
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputBinding
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.cardview.widget.CardView
 import androidx.drawerlayout.widget.DrawerLayout
@@ -48,6 +51,12 @@ class MainActivity : AppCompatActivity(), Imedicine {
     lateinit var btn_home: CardView
     lateinit var btn_profile: CardView
     lateinit var btn_history: CardView
+
+    lateinit var notifBtn : ImageButton
+    lateinit var capsuleBtn : ImageButton
+    lateinit var addLayout: RelativeLayout
+    lateinit var cancle_Btn : Button
+    lateinit var time1 : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,11 +102,34 @@ class MainActivity : AppCompatActivity(), Imedicine {
         btn_close_menu.setOnClickListener {
             menu.visibility = View.GONE
         }
-//        week_process()
-//        addsBtn = binding.addingBtn
-//        recv = binding.mRecycler
-//        addsBtn.setOnClickListener { addInfo() }
-//        val navigationView=findViewById<NavigationView>(R.id.nav_view)
+
+        notifBtn = findViewById(R.id.notifBtn)
+        notifBtn.setOnClickListener {
+            createNewButton()
+        }
+
+        addsBtn = findViewById(R.id.addingBtn)
+        addsBtn.setOnClickListener { addLayout.visibility = View.VISIBLE
+            }
+        addLayout = findViewById(R.id.add_layout)
+        cancle_Btn = findViewById(R.id.cancleBtn)
+        cancle_Btn.setOnClickListener { addLayout.visibility = View.GONE }
+
+        time1 = findViewById(R.id.time1)
+        time1.setOnClickListener {
+
+        }
+    }
+
+
+    private fun createNewButton() {
+        val layout = findViewById(R.id.layoutNotif) as LinearLayout
+        val button = Button(this)
+        button.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+//        button.background = R.drawable.btn_time_bg
+//        button.id = "time1"
+        button.text = "..:.."
+        layout.addView(button)
     }
 
     private fun loadItemFromFirebase() {

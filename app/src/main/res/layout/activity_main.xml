@@ -224,11 +224,13 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/add_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/grey"
-        android:padding="20dp">
+        android:background="@color/white"
+        android:padding="20dp"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -249,30 +251,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
+                android:fontFamily="@font/ibm_sans"
                 android:textColor="@color/main_gray"/>
 
             <EditText
                 android:id="@+id/add_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/ibm_sans"
                 android:textColor="@color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dose"
+                android:fontFamily="@font/ibm_sans"
                 android:textColor="@color/main_gray"/>
 
             <EditText
                 android:id="@+id/add_dose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/ibm_sans"
                 android:textColor="@color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date Range"
+                android:fontFamily="@font/ibm_sans"
                 android:textColor="@color/main_gray"/>
 
             <EditText
@@ -280,13 +287,83 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:fontFamily="@font/ibm_sans"
                 android:editable="false"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notification"
+                    android:textColor="@color/main_gray"
+                    android:fontFamily="@font/ibm_sans"/>
+                <LinearLayout
+                    android:id="@+id/layoutNotif"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
+                    <Button
+                        android:id="@+id/time1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/grey"
+                        android:background="@drawable/btn_time_bg"
+                        android:text="10:10"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/notifBtn"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_add2"
+                        android:background="@color/main_blue"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Image"
+                    android:textColor="@color/main_gray"
+                    android:fontFamily="@font/ibm_sans"
+                    android:layout_marginTop="10dp"/>
+                <ImageButton
+                    android:id="@+id/capsuleBtn"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/img_1"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                
+                <Button
+                    android:id="@+id/cancleBtn"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="140dp"
+                    android:text="Cancle"
+                    android:fontFamily="@font/ibm_sans"/>
+                <Button
+                    android:id="@+id/okBtn"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:text="OK"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="20dp"
+                    android:fontFamily="@font/ibm_sans"/>
             </LinearLayout>
 
 
