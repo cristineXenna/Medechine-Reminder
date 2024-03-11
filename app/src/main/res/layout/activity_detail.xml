@@ -173,14 +173,33 @@
 
         </LinearLayout>
 
-        <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_width="277dp"
-            android:layout_height="39dp"
-            android:text="Change Schedule"
-            android:background="@drawable/button_background"
-            android:fontFamily="@font/itim_regular"/>
+            android:gravity="center"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/change_btn"
+                android:layout_width="277dp"
+                android:layout_height="39dp"
+                android:text="Change Schedule"
+                android:background="@drawable/button_background"
+                app:backgroundTint="@null"
+                android:fontFamily="@font/itim_regular"
+                android:layout_marginBottom="10dp"/>
+            <Button
+                android:id="@+id/delete_btn"
+                android:layout_width="277dp"
+                android:layout_height="39dp"
+                android:text="Delete"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/itim_regular"
+                app:backgroundTint="@color/red"/>
+        </LinearLayout>
+
+
     </RelativeLayout>
 
 

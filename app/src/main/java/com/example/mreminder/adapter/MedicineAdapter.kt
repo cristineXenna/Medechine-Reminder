@@ -63,7 +63,7 @@ class MedicineAdapter (
             .load(list[position].image)
             .into(holder.imageView!!)
         holder.txtName!!.text = StringBuilder().append(list[position].name)
-        holder.txtDose!!.text = StringBuilder().append(list[position].dose)
+        holder.txtDose!!.text = StringBuilder().append("${list[position].dose} ${list[position].unit}")
 
         holder.setOnClickListener(object : IRecycleClickListener{
             override fun onItemClickListener(view: View?, position: Int) {

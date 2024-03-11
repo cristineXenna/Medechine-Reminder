@@ -2,6 +2,7 @@ package com.example.mreminder
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +31,7 @@ import com.example.mreminder.utils.SpaceItemDecoration
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -51,12 +53,6 @@ class MainActivity : AppCompatActivity(), Imedicine {
     lateinit var btn_home: CardView
     lateinit var btn_profile: CardView
     lateinit var btn_history: CardView
-
-    lateinit var notifBtn : ImageButton
-    lateinit var capsuleBtn : ImageButton
-    lateinit var addLayout: RelativeLayout
-    lateinit var cancle_Btn : Button
-    lateinit var time1 : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,41 +99,20 @@ class MainActivity : AppCompatActivity(), Imedicine {
             menu.visibility = View.GONE
         }
 
-        notifBtn = findViewById(R.id.notifBtn)
-        notifBtn.setOnClickListener {
-            createNewButton()
-        }
-
         addsBtn = findViewById(R.id.addingBtn)
-        addsBtn.setOnClickListener { addLayout.visibility = View.VISIBLE
-            }
-        addLayout = findViewById(R.id.add_layout)
-        cancle_Btn = findViewById(R.id.cancleBtn)
-        cancle_Btn.setOnClickListener { addLayout.visibility = View.GONE }
-
-        time1 = findViewById(R.id.time1)
-        time1.setOnClickListener {
-
+        addsBtn.setOnClickListener {
+            val intent = Intent(this, AddItemActivity::class.java)
+            startActivity(intent)
+            finish()
         }
-    }
-
-
-    private fun createNewButton() {
-        val layout = findViewById(R.id.layoutNotif) as LinearLayout
-        val button = Button(this)
-        button.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-//        button.background = R.drawable.btn_time_bg
-//        button.id = "time1"
-        button.text = "..:.."
-        layout.addView(button)
     }
 
     private fun loadItemFromFirebase() {
         val medicineModels:MutableList<MedicineModel> = ArrayList()
-        val userID = "123"
+        val UID = FirebaseAuth.getInstance().uid.toString()
         FirebaseDatabase.getInstance()
-            .getReference("medicine")
-            .child(userID)
+            .getReference(UID)
+            .child("medicines")
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()){

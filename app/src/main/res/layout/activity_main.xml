@@ -103,6 +103,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:src="@drawable/ic_add"
+            android:backgroundTint="@color/main_blue"
             android:tint="@color/white" />
     </RelativeLayout>
 

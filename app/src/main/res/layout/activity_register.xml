@@ -66,12 +66,12 @@
             app:tint="@color/dark_grey"/>
         <EditText
             android:id="@+id/username"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
             android:inputType="text"
             android:textColor="@color/dark_grey"
-            android:textSize="24dp"/>
+            android:textSize="18dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -95,12 +95,12 @@
             app:tint="@color/dark_grey"/>
         <EditText
             android:id="@+id/email"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:textColor="@color/dark_grey"
-            android:textSize="24dp"/>
+            android:textSize="18dp"/>
 
     </LinearLayout>
 
@@ -124,12 +124,12 @@
             app:tint="@color/dark_grey"/>
         <EditText
             android:id="@+id/password"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
             android:textColor="@color/dark_grey"
-            android:textSize="24dp"/>
+            android:textSize="18dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -152,19 +152,19 @@
             app:tint="@color/dark_grey"/>
         <EditText
             android:id="@+id/conf_password"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
             android:inputType="text"
             android:textColor="@color/dark_grey"
-            android:textSize="24dp"/>
+            android:textSize="18dp" />
     </LinearLayout>
     <Button
         android:id="@+id/register_btn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@drawable/box_shape"
+        android:background="@drawable/button_shape"
         android:fontFamily="@font/itim_regular"
         android:text="Register"
         android:textAllCaps="true"
@@ -173,7 +173,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1"/>
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        app:backgroundTint="@null"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
